@@ -11,4 +11,4 @@ output:
 
 ## Project thoughts
 
-I am interested in exploring data related to...
+I am interested in exploring data in a few areas. One could potentially be the correspondence of minimum wage and voter preference or drug overdoses. I am not quite sure what necessarily I want to do quite yet.
