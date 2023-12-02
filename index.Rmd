@@ -31,20 +31,6 @@ access$RURALPOP <- as.double(access$RURALPOP)
 ```
 
 ```{r, FALSE}
-state_summary <- access|>
-  filter(YEAR == 2021 & !(RURALPOP == 0)) |>
-  group_by(ST_ABBREV)|>
-  summarize(n = mean(RURALPOP))
-
-state_summary
-
-rural_summary <- access|>
-  filter(YEAR == 2021 & !(RURALPOP == 0)) |>
-  group_by(ST_ABBREV)|>
-  summarize(n = n())
-
-rural_summary 
-
 access$GEOID <- as.integer(access$GEOID)
 
 access21 <- access|>
