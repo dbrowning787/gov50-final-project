@@ -2,7 +2,9 @@
 title: "Gov 50 Final Project"
 author: "Dillon Browning"
 description: "My final project"
-output:distill::distill_article:self_contained: false
+output: 
+  distill::distill_article:
+    self_contained: false
 ---
 
 
@@ -15,11 +17,11 @@ I am interested in exploring data in a few areas. One could potentially be the c
 ## Research Idea/Part II
 How does access to transportation in rural counties in America influence drug overdose deaths? In America, there is an expanding gap between rural and suburban/urban Americans in economic, healthcare, and educational outcomes. While numerous different policy proposals beginning with those following the Financial Crisis of 2008 have been proposed, there have been mixed outcomes. Over the past year, there have been many debates in Congress on spending and what programs should be pared down. This year representatives (as often happens) continued to look at reducing funding to rural transportation subsidies that thousands of Americans rely upon not only for an easier connection to the country/world, but businesses and other outcomes rely upon peoples ability to access these transportation networks. Areas with worse access to reliable transportation, I believe, are more likely to have a high drug overdose rate. The explanatory variable is the number of people who use transportation (excluding personal vehicle) in a rural county, while the outcome variable is the number of drug overdoses per capita. If overdoses increase as transportation decreases, that would prove my hypothesis; if overdoses increase as transportation decreases, that would disprove my hypothesis.
 
-##Part 3 Data
+## Part 3 Data
 
 GEOID: state + count identifier
 
-```{r, FALSE}
+```{r}
 library(tidyverse)
 library(dplyr)
 access <- read.csv("Data/Access_to_Intercity_Air__Bus__and_Rail_Transportation_in_Rural_Areas.csv")|>
@@ -30,7 +32,7 @@ access <- read.csv("Data/Access_to_Intercity_Air__Bus__and_Rail_Transportation_i
 access$RURALPOP <- as.double(access$RURALPOP)
 ```
 
-```{r, FALSE}
+```{r}
 access$GEOID <- as.integer(access$GEOID)
 
 access21 <- access|>
@@ -51,10 +53,10 @@ access21 <- access|>
             
 
 
-access21
+
 
 ```
-```{r, FALSE}
+```{r}
 drug_overdoses <- read.csv("Data/VSRR_Provisional_County-Level_Drug_Overdose_Death_Counts.csv") |>
   rename(drug_deaths = Provisional.Drug.Overdose.Deaths)
 drug_overdoses <- drug_overdoses |>
@@ -67,16 +69,16 @@ drug_overdoses <- drug_overdoses|>
   
 drug_overdoses$drug_deaths <- as.double(drug_overdoses$drug_deaths)
 
-drug_overdoses
+
 
 overdoses_2021 <- drug_overdoses |>
   filter(Year == 2021)|>  group_by(GEOID, COUNTYNAME, ST_ABBREV)|>
   summarise(deaths_2021 = sum(drug_death2))
 
-overdoses_2021
+
   
 ```
-```{r, FALSE}
+```{r}
 combined <- access21|>
   left_join(overdoses_2021, by = "GEOID")|>
   select(total_pop:perc_poverty, GEOID:deaths_2021)
@@ -89,7 +91,7 @@ combined|>
   ggplot(mapping = aes(x = perc_all, y = overdose_rate)) + geom_point() + geom_smooth(method = "loess", se = FALSE)
 
 ggplot(data = combined, mapping = aes(x = perc_pop_rural, y = overdose_rate)) + geom_point() + geom_smooth(method = "loess", se = FALSE)
-combined
+
 ggplot(data = combined, mapping = aes(x = perc_unemp_intercity, y = overdose_rate))+ geom_point() + geom_smooth(method = "loess", se = FALSE) + scale_x_continuous(limits = c(0, 30))
 
 combined_long <- combined|>
