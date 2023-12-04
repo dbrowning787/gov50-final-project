@@ -90,9 +90,9 @@ combined|>
   filter(perc_all <= 40)|>
   ggplot(mapping = aes(x = perc_all, y = overdose_rate)) + geom_point() + geom_smooth(method = "loess", se = FALSE)
 
-ggplot(data = combined, mapping = aes(x = perc_pop_rural, y = overdose_rate)) + geom_point() + geom_smooth(method = "loess", se = FALSE)
+od <- ggplot(data = combined, mapping = aes(x = perc_pop_rural, y = overdose_rate)) + geom_point(alpha = 0.25) + geom_smooth(method = "loess", se = FALSE) + labs(x = "Percent of Rural Population", y = "Overdose Rate", title = "Percentage of a County Rural and Overdose Rate")
 
-ggplot(data = combined, mapping = aes(x = perc_unemp_intercity, y = overdose_rate))+ geom_point() + geom_smooth(method = "loess", se = FALSE) + scale_x_continuous(limits = c(0, 30))
+ggplot(data = combined, mapping = aes(x = perc_all, y = overdose_rate))+ geom_point() + geom_smooth(method = "loess", se = FALSE) + scale_x_continuous(limits = c(0, 100))
 
 combined_long <- combined|>
   pivot_longer(cols = c(perc_poverty_intercity, perc_poverty), names_to = "Poverty", values_to = "value")
@@ -100,11 +100,13 @@ combined_long <- combined|>
 Poverty_drugs <- ggplot(combined_long, aes(x = value, color = Poverty, y = overdose_rate))+ geom_point(alpha = 0.25) + geom_smooth(method = "loess", se = FALSE)  + scale_x_continuous(limits = c(0, 50)) + labs(title = "Drug Overdose Rate in Relation to Access to Intercity Transit in Rural Areas", x = "Percent of Rural Residents in Poverty in a County", y = "Drug Overdose Rate (per 100000 People)") + scale_color_discrete(labels = c("Percent of Rural Area in Poverty", "Percent of Rural Area in Poverty with Intercity Transit"))
 
 Poverty_drugs
-
+od
 ```
 ```{r}
 Poverty_drugs <- ggplot(combined_long, aes(x = value, color = Poverty, y = overdose_rate))+ geom_point(alpha = 0.25) + geom_smooth(method = "loess", se = FALSE)  + scale_x_continuous(limits = c(0, 50)) + labs(title = "Drug Overdose Rate in Relation to Access to Intercity Transit in Rural Areas", x = "Percent of Rural Residents in Poverty in a County", y = "Drug Overdose Rate (per 100000 People)") + scale_color_discrete(labels = c("Percent of Rural Area in Poverty", "Percent of Rural Area in Poverty with Intercity Transit"))
 
 Poverty_drugs
+od
 ```
 
+The overdose rate appears to be higher in urban locations in 2021, and access to intercity transport actually appears to raise the overdose rate in rural counties. My data is somewhat flawed, however, as federal privacy acts prohibit the disclosure of the exact amount of deaths in a county from overdoses in a month if between 1 and 9 deaths occurred. For these values, I assumed there was one death (as it was the minimum) which I believe effects counties with smaller populations actually under reporting the number of deaths and leading to an inaccurate OD rate for these counties. Poverty and access to intercity transport seemed to be interesting to observe, however. In counties where the rural population had between 0 and 5 percent unemployment, there was a lower OD rate in counties with access to intercity transit.
