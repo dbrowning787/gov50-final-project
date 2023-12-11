@@ -98,28 +98,31 @@ combined <- combined |>
 ```
 
 ```{r}
-library(broom)
+
 combined|>
   filter(perc_all <= 40)|>
   ggplot(mapping = aes(x = perc_all, y = overdose_rate)) + geom_point() + geom_smooth(method = "loess", se = FALSE)
+
+combined_long <- combined|>
+  pivot_longer(cols = c(perc_poverty_intercity, perc_poverty), names_to = "Poverty", values_to = "value")
 
 od <- ggplot(data = combined, mapping = aes(x = perc_pop_rural, y = overdose_rate)) + geom_point(alpha = 0.25) + geom_smooth(method = "loess", se = FALSE) + labs(x = "Percent of Rural Population", y = "Overdose Rate", title = "Percentage of a County Rural and Overdose Rate")
 
 ggplot(data = combined, mapping = aes(x = perc_all, y = overdose_rate))+ geom_point() + geom_smooth(method = "loess", se = FALSE) + scale_x_continuous(limits = c(0, 100))
 
-ggplot(data = combined_long, mapping = aes(x = perc_all, y = value, color =Poverty))+ geom_point(alpha = 0.25) + geom_smooth(method = "loess", se = FALSE) + scale_x_continuous(limits = c(0, 100)) + scale_y_continuous(limits = c(0, 50)) + labs(title = "Rural Poverty in Relation to Access to Intercity Transit in Rural Areas", x = "Percent of Rural Population with Access to Intercity Transit", y = "Percent of Rural Population in Poverty") + scale_color_discrete(labels = c("Percent of Rural Area in Poverty", "Percent of Rural Area in Poverty with Intercity Transit"))
+transport_poverty <- ggplot(data = combined_long, mapping = aes(x = perc_all, y = value, color =Poverty))+ geom_point(alpha = 0.25) + geom_smooth(method = "loess", se = FALSE) + scale_x_continuous(limits = c(0, 100)) + scale_y_continuous(limits = c(0, 50)) + labs(title = "Rural Poverty in Relation to Access to Intercity Transit in Rural Areas", x = "Percent of Rural Population with Access to Intercity Transit", y = "Percent of Rural Population in Poverty") + scale_color_discrete(labels = c("Percent of Rural Area in Poverty", "Percent of Rural Area in Poverty with Intercity Transit"))
 
 
-combined_long <- combined|>
-  pivot_longer(cols = c(perc_poverty_intercity, perc_poverty), names_to = "Poverty", values_to = "value")
+
 
 Poverty_drugs <- ggplot(combined_long, aes(x = value, color = Poverty, y = overdose_rate))+ geom_point(alpha = 0.1) + geom_smooth(method = "loess", se = FALSE)  + scale_x_continuous(limits = c(0, 50)) + labs(title = "Drug Overdose Rate in Relation to Access to Intercity Transit in Rural Areas", x = "Percent of Rural Residents in Poverty in a County", y = "Drug Overdose Rate (per 100000 People)") + scale_color_discrete(labels = c("Percent of Rural Area in Poverty", "Percent of Rural Area in Poverty with Intercity Transit"))
 
 fit <- lm(perc_all ~ overdose_rate + perc_poverty, data = combined)
 
+transport_poverty
 Poverty_drugs
 od
-glance(fit)
+fit
 ```
 
 
