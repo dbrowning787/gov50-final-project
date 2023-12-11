@@ -10,31 +10,35 @@ output:
 
 
 
-## Project thoughts/Part I
+## Introduction
 
-I am interested in exploring data in a few areas. One could potentially be the correspondence of minimum wage and voter preference or drug overdoses. I am not quite sure what necessarily I want to do quite yet.
-
-## Research Idea/Part II
-How does access to transportation in rural counties in America influence drug overdose deaths? In America, there is an expanding gap between rural and suburban/urban Americans in economic, healthcare, and educational outcomes. While numerous different policy proposals beginning with those following the Financial Crisis of 2008 have been proposed, there have been mixed outcomes. Over the past year, there have been many debates in Congress on spending and what programs should be pared down. This year representatives (as often happens) continued to look at reducing funding to rural transportation subsidies that thousands of Americans rely upon not only for an easier connection to the country/world, but businesses and other outcomes rely upon peoples ability to access these transportation networks. Areas with worse access to reliable transportation, I believe, are more likely to have a high drug overdose rate. The explanatory variable is the number of people who use transportation (excluding personal vehicle) in a rural county, while the outcome variable is the number of drug overdoses per capita. If overdoses increase as transportation decreases, that would prove my hypothesis; if overdoses increase as transportation decreases, that would disprove my hypothesis.
+According to the United States Census, approximately 60 million people, or 19.3% of the American population, live in rural areas. While America's rural counties have been successful in diversifying their economies and addressing certain socioeconomic disparities across the rural-urban divide, there are still significant disparities between urban and rural communities regarding economic, educational, and health outcomes. Rural America experienced a decrease in population, aging demographics, and decreasing life expectancy. Policy makes have long suggested innovative ways to address these disparities such as transportation subsidies like the Essential Air Service Program or Amtrak stops in rural communities. In this project, I will examine the impact of access to intercity transportation on the drug overdose rate and poverty. 
 
 ## Part 3 Data
 
 GEOID: state + count identifier
 
 ```{r}
+#Load libraries
 library(tidyverse)
 library(dplyr)
+
+#Load transportation data set
+#Save to "access"
+#Rename variables for merging with drug overdose data set
 access <- read.csv("Data/Access_to_Intercity_Air__Bus__and_Rail_Transportation_in_Rural_Areas.csv")|>
   rename(ST_ABBREV = STATEPO, COUNTYNAME = NAME)
 ```
 
 ```{r}
+#Change RURALPOP column to number in access
 access$RURALPOP <- as.double(access$RURALPOP)
-```
 
-```{r}
+#Change GEOID column to integer in access
 access$GEOID <- as.integer(access$GEOID)
 
+#Create access21 with data from 2021 only
+#Take mean of multiple entries from different projections/observations
 access21 <- access|>
   filter(YEAR  == 2021)|>
   group_by(GEOID)|>
@@ -51,41 +55,50 @@ access21 <- access|>
             perc_unemp = mean(as.numeric(UEMP)),
             perc_poverty = mean(as.numeric(POV)))
             
-
-
-
-
 ```
+
+
 ```{r}
+#Load drug overdoses data set and save to drug_overdoses
+#Rename column Provisional.Drug.Overdose.Deaths with easier name drug_deaths
 drug_overdoses <- read.csv("Data/VSRR_Provisional_County-Level_Drug_Overdose_Death_Counts.csv") |>
   rename(drug_deaths = Provisional.Drug.Overdose.Deaths)
+
+#Rename FIPS to GEOID for merging data sets
 drug_overdoses <- drug_overdoses |>
   rename(GEOID = FIPS)
 
+#Change drug_deaths column to number
 drug_overdoses$drug_deaths <- as.double(drug_overdoses$drug_deaths)
 
+#Create new column drug_overdoses data set
+#drug_death 2 combines drug_death values & assumes missing values
+#In places with 1-9 overdose deaths, assume 1 death
 drug_overdoses <- drug_overdoses|>
   mutate(drug_death2 = if_else(Footnote == "One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.", 1, drug_deaths))
   
-drug_overdoses$drug_deaths <- as.double(drug_overdoses$drug_deaths)
-
-
-
+#Create overdoses_21 with sum of overdose deaths in 2021 by county
 overdoses_2021 <- drug_overdoses |>
   filter(Year == 2021)|>  group_by(GEOID, COUNTYNAME, ST_ABBREV)|>
   summarise(deaths_2021 = sum(drug_death2))
-
-
-  
 ```
 ```{r}
+#Join access_21 & overdoses_2021 data sets by GEOID
+#Select columns to be included in new data set combined
 combined <- access21|>
   left_join(overdoses_2021, by = "GEOID")|>
   select(total_pop:perc_poverty, GEOID:deaths_2021)
+```
 
+```{r}
+#Create new column with overdose rate per 100000 residents
+#Create new column with percent of population rural 
 combined <- combined |>
   mutate(overdose_rate = (deaths_2021/total_pop)*100000, perc_pop_rural = (rural_pop/total_pop)*100)
+```
 
+```{r}
+library(broom)
 combined|>
   filter(perc_all <= 40)|>
   ggplot(mapping = aes(x = perc_all, y = overdose_rate)) + geom_point() + geom_smooth(method = "loess", se = FALSE)
@@ -94,19 +107,21 @@ od <- ggplot(data = combined, mapping = aes(x = perc_pop_rural, y = overdose_rat
 
 ggplot(data = combined, mapping = aes(x = perc_all, y = overdose_rate))+ geom_point() + geom_smooth(method = "loess", se = FALSE) + scale_x_continuous(limits = c(0, 100))
 
+ggplot(data = combined_long, mapping = aes(x = perc_all, y = value, color =Poverty))+ geom_point(alpha = 0.25) + geom_smooth(method = "loess", se = FALSE) + scale_x_continuous(limits = c(0, 100)) + scale_y_continuous(limits = c(0, 50)) + labs(title = "Rural Poverty in Relation to Access to Intercity Transit in Rural Areas", x = "Percent of Rural Population with Access to Intercity Transit", y = "Percent of Rural Population in Poverty") + scale_color_discrete(labels = c("Percent of Rural Area in Poverty", "Percent of Rural Area in Poverty with Intercity Transit"))
+
+
 combined_long <- combined|>
   pivot_longer(cols = c(perc_poverty_intercity, perc_poverty), names_to = "Poverty", values_to = "value")
 
-Poverty_drugs <- ggplot(combined_long, aes(x = value, color = Poverty, y = overdose_rate))+ geom_point(alpha = 0.25) + geom_smooth(method = "loess", se = FALSE)  + scale_x_continuous(limits = c(0, 50)) + labs(title = "Drug Overdose Rate in Relation to Access to Intercity Transit in Rural Areas", x = "Percent of Rural Residents in Poverty in a County", y = "Drug Overdose Rate (per 100000 People)") + scale_color_discrete(labels = c("Percent of Rural Area in Poverty", "Percent of Rural Area in Poverty with Intercity Transit"))
+Poverty_drugs <- ggplot(combined_long, aes(x = value, color = Poverty, y = overdose_rate))+ geom_point(alpha = 0.1) + geom_smooth(method = "loess", se = FALSE)  + scale_x_continuous(limits = c(0, 50)) + labs(title = "Drug Overdose Rate in Relation to Access to Intercity Transit in Rural Areas", x = "Percent of Rural Residents in Poverty in a County", y = "Drug Overdose Rate (per 100000 People)") + scale_color_discrete(labels = c("Percent of Rural Area in Poverty", "Percent of Rural Area in Poverty with Intercity Transit"))
+
+fit <- lm(perc_all ~ overdose_rate + perc_poverty, data = combined)
 
 Poverty_drugs
 od
+glance(fit)
 ```
-```{r}
-Poverty_drugs <- ggplot(combined_long, aes(x = value, color = Poverty, y = overdose_rate))+ geom_point(alpha = 0.25) + geom_smooth(method = "loess", se = FALSE)  + scale_x_continuous(limits = c(0, 50)) + labs(title = "Drug Overdose Rate in Relation to Access to Intercity Transit in Rural Areas", x = "Percent of Rural Residents in Poverty in a County", y = "Drug Overdose Rate (per 100000 People)") + scale_color_discrete(labels = c("Percent of Rural Area in Poverty", "Percent of Rural Area in Poverty with Intercity Transit"))
 
-Poverty_drugs
-od
-```
+
 
 The overdose rate appears to be higher in urban locations in 2021, and access to intercity transport actually appears to raise the overdose rate in rural counties. My data is somewhat flawed, however, as federal privacy acts prohibit the disclosure of the exact amount of deaths in a county from overdoses in a month if between 1 and 9 deaths occurred. For these values, I assumed there was one death (as it was the minimum) which I believe effects counties with smaller populations actually under reporting the number of deaths and leading to an inaccurate OD rate for these counties. Poverty and access to intercity transport seemed to be interesting to observe, however. In counties where the rural population had between 0 and 5 percent unemployment, there was a lower OD rate in counties with access to intercity transit.
