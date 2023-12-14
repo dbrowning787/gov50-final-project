@@ -115,7 +115,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["Data/Access_to_Intercity_Air__Bus__and_Rail_Transportation_in_Rural_Areas.csv","Data/Data.Rproj","Data/VSRR_Provisional_County-Level_Drug_Overdose_Death_Counts.csv","index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-5-1.png","index_files/figure-html5/unnamed-chunk-5-2.png","index_files/figure-html5/unnamed-chunk-5-3.png","index_files/figure-html5/unnamed-chunk-5-4.png","index_files/figure-html5/unnamed-chunk-6-1.png","index_files/figure-html5/unnamed-chunk-6-2.png","index_files/figure-html5/unnamed-chunk-6-3.png","index_files/figure-html5/unnamed-chunk-6-4.png","index_files/figure-html5/unnamed-chunk-6-5.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.24/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["Data/Access_to_Intercity_Air__Bus__and_Rail_Transportation_in_Rural_Areas.csv","Data/Data.Rproj","Data/VSRR_Provisional_County-Level_Drug_Overdose_Death_Counts.csv","index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-2-1.png","index_files/figure-html5/unnamed-chunk-3-1.png","index_files/figure-html5/unnamed-chunk-5-1.png","index_files/figure-html5/unnamed-chunk-5-2.png","index_files/figure-html5/unnamed-chunk-5-3.png","index_files/figure-html5/unnamed-chunk-5-4.png","index_files/figure-html5/unnamed-chunk-6-1.png","index_files/figure-html5/unnamed-chunk-6-2.png","index_files/figure-html5/unnamed-chunk-6-3.png","index_files/figure-html5/unnamed-chunk-6-4.png","index_files/figure-html5/unnamed-chunk-6-5.png","index_files/figure-html5/unnamed-chunk-7-1.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.24/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1473,6 +1473,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   <!--/radix_placeholder_distill-->
   <script src="index_files/header-attrs-2.24/header-attrs.js"></script>
+  <script src="index_files/kePrint-0.0.1/kePrint.js"></script>
+  <link href="index_files/lightable-0.0.1/lightable.css" rel="stylesheet" />
   <script src="index_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <script src="index_files/popper-2.6.0/popper.min.js"></script>
   <link href="index_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -1517,10 +1519,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 
 <div class="d-article">
-<h2 id="introduction">Introduction</h2>
-<p>According to the United States Census, approximately 60 million people, or 19.3% of the American population, live in rural areas. While America’s rural counties have been successful in diversifying their economies and addressing certain socioeconomic disparities across the rural-urban divide, there are still significant disparities between urban and rural communities regarding economic, educational, and health outcomes. Rural America experienced a decrease in population, aging demographics, and decreasing life expectancy. Policy makes have long suggested innovative ways to address these disparities such as transportation subsidies like the Essential Air Service Program or Amtrak stops in rural communities. In this project, I will examine the impact of access to intercity transportation on the drug overdose rate and poverty.</p>
-<h2 id="part-3-data">Part 3 Data</h2>
-<p>GEOID: state + count identifier</p>
+<p>##Introduction</p>
+<p>According to the United States Census, approximately 60 million people, or 19.3% of the American population, live in rural areas. While America’s rural counties have been successful in diversifying their economies and addressing certain socioeconomic disparities across the rural-urban divide, there are still significant disparities between urban and rural communities regarding economic, educational, and health outcomes. Rural America experienced a decrease in population, aging demographics, and decreasing life expectancy. Policy makers have long suggested innovative ways to address these disparities such as transportation subsidies like the Essential Air Service Program or Amtrak stops in rural communities. In this project, I will examine the impact of access to intercity transportation on the drug overdose rate and poverty. My hypothesis is that there is a relationship between access to intercity transportation in rural communities and overdose deaths. The null hypothesis is that there is no relationship between overdoses and access to intercity transportation in rural communities.</p>
+##Data
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'>#Load libraries</span></span>
@@ -1531,12 +1532,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span><span class='co'>#Save to "access"</span></span>
 <span><span class='co'>#Rename variables for merging with drug overdose data set</span></span>
 <span><span class='va'>access</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>"Data/Access_to_Intercity_Air__Bus__and_Rail_Transportation_in_Rural_Areas.csv"</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span>ST_ABBREV <span class='op'>=</span> <span class='va'>STATEPO</span>, COUNTYNAME <span class='op'>=</span> <span class='va'>NAME</span><span class='op'>)</span></span></code></pre>
-</div>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'>#Change RURALPOP column to number in access</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span>ST_ABBREV <span class='op'>=</span> <span class='va'>STATEPO</span>, COUNTYNAME <span class='op'>=</span> <span class='va'>NAME</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'>#Change RURALPOP column to number in access</span></span>
 <span><span class='va'>access</span><span class='op'>$</span><span class='va'>RURALPOP</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/double.html'>as.double</a></span><span class='op'>(</span><span class='va'>access</span><span class='op'>$</span><span class='va'>RURALPOP</span><span class='op'>)</span></span>
 <span></span>
 <span><span class='co'>#Change GEOID column to integer in access</span></span>
@@ -1558,12 +1556,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span>            perc_l10k_intercity <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='va'>L10K_ANY</span><span class='op'>)</span><span class='op'>)</span>,</span>
 <span>            perc_unemp_intercity <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='va'>UEMP_ANY</span><span class='op'>)</span><span class='op'>)</span>,</span>
 <span>            perc_unemp <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='va'>UEMP</span><span class='op'>)</span><span class='op'>)</span>,</span>
-<span>            perc_poverty <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='va'>POV</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
-</div>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'>#Load drug overdoses data set and save to drug_overdoses</span></span>
+<span>            perc_poverty <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='va'>POV</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></span>
+<span>            </span>
+<span><span class='co'>#Load drug overdoses data set and save to drug_overdoses</span></span>
 <span><span class='co'>#Rename column Provisional.Drug.Overdose.Deaths with easier name drug_deaths</span></span>
 <span><span class='va'>drug_overdoses</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>"Data/VSRR_Provisional_County-Level_Drug_Overdose_Death_Counts.csv"</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span>drug_deaths <span class='op'>=</span> <span class='va'>Provisional.Drug.Overdose.Deaths</span><span class='op'>)</span></span>
@@ -1584,76 +1579,265 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span><span class='co'>#Create overdoses_21 with sum of overdose deaths in 2021 by county</span></span>
 <span><span class='va'>overdoses_2021</span> <span class='op'>&lt;-</span> <span class='va'>drug_overdoses</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>Year</span> <span class='op'>==</span> <span class='fl'>2021</span><span class='op'>)</span><span class='op'>|&gt;</span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>GEOID</span>, <span class='va'>COUNTYNAME</span>, <span class='va'>ST_ABBREV</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>deaths_2021 <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>drug_death2</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
-</div>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'>#Join access_21 &amp; overdoses_2021 data sets by GEOID</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>deaths_2021 <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>drug_death2</span><span class='op'>)</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'>#Join access_21 &amp; overdoses_2021 data sets by GEOID</span></span>
 <span><span class='co'>#Select columns to be included in new data set combined</span></span>
 <span><span class='va'>combined</span> <span class='op'>&lt;-</span> <span class='va'>access21</span><span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate-joins.html'>left_join</a></span><span class='op'>(</span><span class='va'>overdoses_2021</span>, by <span class='op'>=</span> <span class='st'>"GEOID"</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>total_pop</span><span class='op'>:</span><span class='va'>perc_poverty</span>, <span class='va'>GEOID</span><span class='op'>:</span><span class='va'>deaths_2021</span><span class='op'>)</span></span></code></pre>
-</div>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'>#Create new column with overdose rate per 100000 residents</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>total_pop</span><span class='op'>:</span><span class='va'>perc_poverty</span>, <span class='va'>GEOID</span><span class='op'>:</span><span class='va'>deaths_2021</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'>#Create new column with overdose rate per 100000 residents</span></span>
 <span><span class='co'>#Create new column with percent of population rural </span></span>
 <span><span class='va'>combined</span> <span class='op'>&lt;-</span> <span class='va'>combined</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>overdose_rate <span class='op'>=</span> <span class='op'>(</span><span class='va'>deaths_2021</span><span class='op'>/</span><span class='va'>total_pop</span><span class='op'>)</span><span class='op'>*</span><span class='fl'>100000</span>, perc_pop_rural <span class='op'>=</span> <span class='op'>(</span><span class='va'>rural_pop</span><span class='op'>/</span><span class='va'>total_pop</span><span class='op'>)</span><span class='op'>*</span><span class='fl'>100</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
+<p>The two data sets that are used in this project. The first data set is “Access to Intercity Air, Bus, and Rail Transportation in Rural Areas” published by the U.S. Department of Transportation in September of 2023. This data set contains information on individual counties across the U.S., the percent and total population of rural residents with access to specific types of intercity transit, both rural and total population of counties, rural poverty in counties, demographic information (resident age 65+), and unemployment data, over multiple years. Many of the variables including demographics, employment, and poverty are some of the confounders that I will examine as well. The second data set is “Provisional County-Level Drug Overdose Death Counts” published by the U.S. Centers for Disease Control and Prevention that was last updated in March of 2023. This data set includes the monthly total of drug overdoses by county in the U.S.from January of 2020 to March of 2023. These data sets are combined into one by matching the GEOID (state + county identifier numbers), and for the sake of this project, they only include data from the most recent entry in both of the data sets which is 2021.</p>
+<p>Both data sets required tidying before joining and slight variable manipulation. The variable by which that data set was joined, GEOID, had to be renamed as it was referred to as FIPS in the drug overdose data set. In the drug overdose data set, federal privacy laws censor all monthly county drug overdose death values between 1 and 9, and these are denoted by a footnote in the data set. For this sake of this analysis, despite not being a perfect estimate, all entries with this footnote are assumed as having the minimum value within that range. There are multiple different population projection and estimates in the access to intercity transit data set; therefore, I took the mean of these projections for each county and used these values in my analysis. This study is a cross sectional study as I am making observations from a singular point in time, the year 2021. The dependent variable is access to intercity transportation while the independent variable is drug overdoses.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>combined</span><span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>perc_all</span> <span class='op'>&lt;=</span> <span class='fl'>40</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>perc_all</span>, y <span class='op'>=</span> <span class='va'>overdose_rate</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"loess"</span>, se <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>access21</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>perc_all</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_histogram.html'>geom_histogram</a></span><span class='op'>(</span>binwidth <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_x_continuous</a></span><span class='op'>(</span>limits <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>100</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_y_continuous</a></span><span class='op'>(</span>limits <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>150</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Percent of Rural Residents with Access to Intercity Transit"</span>,</span>
+<span>       subtitle <span class='op'>=</span> <span class='st'>"U.s. Counties 2021"</span>,</span>
+<span>       x <span class='op'>=</span> <span class='st'>"Percent of Rural Residents with Access to Intercity Transit"</span>,</span>
+<span>       y <span class='op'>=</span> <span class='st'>"Number of Counties"</span>,</span>
+<span>       source <span class='op'>=</span> <span class='st'>"Access to Intercity Air, Bus, and Rail Transportation in Rural Areas,</span></span>
+<span><span class='st'>       U.S. Department of Transportation, 2023"</span></span>
+<span>       <span class='op'>)</span></span></code></pre>
 </div>
-<img src="index_files/figure-html5/unnamed-chunk-6-1.png" width="624" />
+<p><img src="index_files/figure-html5/unnamed-chunk-2-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>combined_long</span> <span class='op'>&lt;-</span> <span class='va'>combined</span><span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/pivot_longer.html'>pivot_longer</a></span><span class='op'>(</span>cols <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>perc_poverty_intercity</span>, <span class='va'>perc_poverty</span><span class='op'>)</span>, names_to <span class='op'>=</span> <span class='st'>"Poverty"</span>, values_to <span class='op'>=</span> <span class='st'>"value"</span><span class='op'>)</span></span>
-<span></span>
-<span><span class='va'>od</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>combined</span>, mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>perc_pop_rural</span>, y <span class='op'>=</span> <span class='va'>overdose_rate</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>alpha <span class='op'>=</span> <span class='fl'>0.25</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"loess"</span>, se <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"Percent of Rural Population"</span>, y <span class='op'>=</span> <span class='st'>"Overdose Rate"</span>, title <span class='op'>=</span> <span class='st'>"Percentage of a County Rural and Overdose Rate"</span><span class='op'>)</span></span>
-<span></span>
-<span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>combined</span>, mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>perc_all</span>, y <span class='op'>=</span> <span class='va'>overdose_rate</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"loess"</span>, se <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_x_continuous</a></span><span class='op'>(</span>limits <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>100</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>combined</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>overdose_rate</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_histogram.html'>geom_histogram</a></span><span class='op'>(</span>binwidth <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_x_continuous</a></span><span class='op'>(</span>limits <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>2500</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_y_continuous</a></span><span class='op'>(</span>limits <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>100</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Provisional Drug Overdose Rate by County"</span>,</span>
+<span>       subtitle <span class='op'>=</span> <span class='st'>"United States 2021"</span>,</span>
+<span>       x <span class='op'>=</span> <span class='st'>"Provisional Overdose Rate (per 100,000 People)"</span>,</span>
+<span>       y <span class='op'>=</span> <span class='st'>"Number of Counties"</span>,</span>
+<span>       source <span class='op'>=</span> <span class='st'>"Provisional County-Level Drug Overdose Death Counts,</span></span>
+<span><span class='st'>       U.S. Centers for Disease Control &amp; Prevention, 2023"</span></span>
+<span>       <span class='op'>)</span></span></code></pre>
 </div>
-<img src="index_files/figure-html5/unnamed-chunk-6-2.png" width="624" />
+<p><img src="index_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
+</div>
+##Results
+Since my variable of interest was drug overdoses, the following is a regression taable that details the regression between these two variables.
+<div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>transport_poverty</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>combined_long</span>, mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>perc_all</span>, y <span class='op'>=</span> <span class='va'>value</span>, color <span class='op'>=</span><span class='va'>Poverty</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>alpha <span class='op'>=</span> <span class='fl'>0.25</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"loess"</span>, se <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_x_continuous</a></span><span class='op'>(</span>limits <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>100</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_y_continuous</a></span><span class='op'>(</span>limits <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>50</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Rural Poverty in Relation to Access to Intercity Transit in Rural Areas"</span>, x <span class='op'>=</span> <span class='st'>"Percent of Rural Population with Access to Intercity Transit"</span>, y <span class='op'>=</span> <span class='st'>"Percent of Rural Population in Poverty"</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_colour_discrete.html'>scale_color_discrete</a></span><span class='op'>(</span>labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Percent of Rural Area in Poverty"</span>, <span class='st'>"Percent of Rural Area in Poverty with Intercity Transit"</span><span class='op'>)</span><span class='op'>)</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>fit_drugs</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>overdose_rate</span> <span class='op'>~</span> <span class='va'>perc_all</span>, data <span class='op'>=</span> <span class='va'>combined</span><span class='op'>)</span></span>
+<span><span class='va'>varnames1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"(Intercept)"</span> <span class='op'>=</span> <span class='st'>"Intercept"</span>,</span>
+<span>               <span class='st'>"perc_all"</span> <span class='op'>=</span> <span class='st'>"Rural Access to intercity Transit"</span><span class='op'>)</span></span>
 <span></span>
-<span></span>
-<span></span>
-<span></span>
-<span><span class='va'>Poverty_drugs</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>combined_long</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>value</span>, color <span class='op'>=</span> <span class='va'>Poverty</span>, y <span class='op'>=</span> <span class='va'>overdose_rate</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>alpha <span class='op'>=</span> <span class='fl'>0.1</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"loess"</span>, se <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>  <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_x_continuous</a></span><span class='op'>(</span>limits <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>50</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Drug Overdose Rate in Relation to Access to Intercity Transit in Rural Areas"</span>, x <span class='op'>=</span> <span class='st'>"Percent of Rural Residents in Poverty in a County"</span>, y <span class='op'>=</span> <span class='st'>"Drug Overdose Rate (per 100000 People)"</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_colour_discrete.html'>scale_color_discrete</a></span><span class='op'>(</span>labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Percent of Rural Area in Poverty"</span>, <span class='st'>"Percent of Rural Area in Poverty with Intercity Transit"</span><span class='op'>)</span><span class='op'>)</span></span>
-<span></span>
-<span><span class='va'>fit</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>perc_all</span> <span class='op'>~</span> <span class='va'>overdose_rate</span> <span class='op'>+</span> <span class='va'>perc_poverty</span>, data <span class='op'>=</span> <span class='va'>combined</span><span class='op'>)</span></span>
-<span></span>
-<span><span class='va'>transport_poverty</span></span></code></pre>
+<span><span class='fu'>modelsummary</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/modelsummary/man/modelsummary.html'>modelsummary</a></span><span class='op'>(</span><span class='va'>fit_drugs</span>, statistic <span class='op'>=</span> <span class='st'>"p.value"</span>, </span>
+<span>                           gof_map <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"nobs"</span>, <span class='st'>"r.squared"</span>, <span class='st'>"adj.r.squared"</span><span class='op'>)</span>,</span>
+<span>                           coef_map <span class='op'>=</span> <span class='va'>varnames1</span><span class='op'>)</span></span></code></pre>
 </div>
-<img src="index_files/figure-html5/unnamed-chunk-6-3.png" width="624" />
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:center;">
+ (1)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Intercept
+</td>
+<td style="text-align:center;">
+111.363
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+(&lt;0.001)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rural Access to intercity Transit
+</td>
+<td style="text-align:center;">
+1.756
+</td>
+</tr>
+<tr>
+<td style="text-align:left;box-shadow: 0px 1.5px">
+</td>
+<td style="text-align:center;box-shadow: 0px 1.5px">
+(&lt;0.001)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Num.Obs.
+</td>
+<td style="text-align:center;">
+3138
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+R2
+</td>
+<td style="text-align:center;">
+0.070
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+R2 Adj.
+</td>
+<td style="text-align:center;">
+0.070
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>In this regression table, the intercept of this line is at 111.4; this indicates that, when 0% of rural residents in a county have access to intercity transit, the overdose death rate is 111.4 people per 100,000 residents. The coefficient associated with access to intercity transit is 1.76. This coefficient indicates that, for every one percent increase in rural residents within a county with access to intercity transit, the drug overdose death rate increases by 1.76 people per 100,000 residents. This would mean in a county with 100% of rural residents with access to intercity transportation the overdose death rate would be approximately 287 people per 100,000 residents in a county. The p-value in this regression is less than 0.001 which is highly statistically significant at the 0.05 level and indicates that the null hypothesis would be rejected. Since this is a cross-sectional study, the relationship should not be interpreted causally.</p>
+<div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>Poverty_drugs</span></span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>combined</span>, </span>
+<span>       mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>perc_all</span>, y <span class='op'>=</span> <span class='va'>overdose_rate</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"lm"</span>, formula <span class='op'>=</span> <span class='va'>y</span><span class='op'>~</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_x_continuous</a></span><span class='op'>(</span>limits <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>100</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Drug Overdose Death Rate in Relation to Access to Intercity Transit in Rural Areas"</span>, </span>
+<span>       x <span class='op'>=</span> <span class='st'>"Percent of Rural Population with Access to Intercity Transit"</span>, </span>
+<span>       y <span class='op'>=</span> <span class='st'>"Drug Overdose Death Rate"</span><span class='op'>)</span> </span></code></pre>
 </div>
-<img src="index_files/figure-html5/unnamed-chunk-6-4.png" width="624" />
+<p><img src="index_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
+</div>
+As shown in the above plot, there is a positive correlation between access to intercity transportation in rural communities and the drug overdose rate as the line of best fit appears to raise gradually with the percent of rural residents with access to intercity transit. This correlation, however, does not appear to be extremely strong considering both the low r squared value that was calculated in the regression and the large amount of outlying values from the line of best fit.
+<div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>od</span></span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>fit_poverty</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>overdose_rate</span> <span class='op'>~</span> <span class='va'>perc_poverty_intercity</span> <span class='op'>+</span> <span class='va'>perc_poverty</span>, data <span class='op'>=</span> <span class='va'>combined</span><span class='op'>)</span></span>
+<span><span class='va'>varnames1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"(Intercept)"</span> <span class='op'>=</span> <span class='st'>"Intercept"</span>,</span>
+<span>               <span class='st'>"perc_poverty_intercity"</span> <span class='op'>=</span> <span class='st'>"Rural Poverty W/ Access to Intercity Transit"</span>,</span>
+<span>               <span class='st'>"perc_poverty"</span> <span class='op'>=</span> <span class='st'>"Rural Poverty"</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'>modelsummary</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/modelsummary/man/modelsummary.html'>modelsummary</a></span><span class='op'>(</span><span class='va'>fit_poverty</span>, statistic <span class='op'>=</span> <span class='st'>"p.value"</span>, </span>
+<span>                           gof_map <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"nobs"</span>, <span class='st'>"r.squared"</span>, <span class='st'>"adj.r.squared"</span><span class='op'>)</span>,</span>
+<span>                           coef_map <span class='op'>=</span> <span class='va'>varnames1</span><span class='op'>)</span></span></code></pre>
 </div>
-<img src="index_files/figure-html5/unnamed-chunk-6-5.png" width="624" />
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:center;">
+ (1)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Intercept
+</td>
+<td style="text-align:center;">
+220.325
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+(&lt;0.001)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rural Poverty W/ Access to Intercity Transit
+</td>
+<td style="text-align:center;">
+8.224
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+(&lt;0.001)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rural Poverty
+</td>
+<td style="text-align:center;">
+−5.741
+</td>
+</tr>
+<tr>
+<td style="text-align:left;box-shadow: 0px 1.5px">
+</td>
+<td style="text-align:center;box-shadow: 0px 1.5px">
+(&lt;0.001)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Num.Obs.
+</td>
+<td style="text-align:center;">
+3138
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+R2
+</td>
+<td style="text-align:center;">
+0.032
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+R2 Adj.
+</td>
+<td style="text-align:center;">
+0.031
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>I decided to look at rural poverty as a potential confounder in this survey as well. Poverty is often used as an explanation for drug usage. As rural poverty increased in areas with access to intercity transit, the drug overdoses increased by 8.224 per 100,000 individuals as poverty increased by 1%. Contrarily, overdose rates decreased as poverty increased in rural areas generally. This, however, cannot be interpreted causally an should be viewed skeptically especially considering the extremely low r-squared value.</p>
+<div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>fit</span></span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>od_rate_perc_rural</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>combined</span>, </span>
+<span>             mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>perc_pop_rural</span>, </span>
+<span>                           y <span class='op'>=</span> <span class='va'>overdose_rate</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>alpha <span class='op'>=</span> <span class='fl'>0.25</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"lm"</span>, formula <span class='op'>=</span> <span class='va'>y</span><span class='op'>~</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"Percent of Rural Population in County"</span>, </span>
+<span>       y <span class='op'>=</span> <span class='st'>"Overdose Rate (per 100,000 People)"</span>, </span>
+<span>       title <span class='op'>=</span> <span class='st'>"Percentage of a County Rural and Overdose Rate"</span><span class='op'>)</span></span>
+<span><span class='va'>od_rate_perc_rural</span></span></code></pre>
 </div>
-<pre><code>
-Call:
-lm(formula = perc_all ~ overdose_rate + perc_poverty, data = combined)
-
-Coefficients:
-  (Intercept)  overdose_rate   perc_poverty  
-     74.19831        0.03907       -1.33041  </code></pre>
+<p><img src="index_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
 </div>
-<p>The overdose rate appears to be higher in urban locations in 2021, and access to intercity transport actually appears to raise the overdose rate in rural counties. My data is somewhat flawed, however, as federal privacy acts prohibit the disclosure of the exact amount of deaths in a county from overdoses in a month if between 1 and 9 deaths occurred. For these values, I assumed there was one death (as it was the minimum) which I believe effects counties with smaller populations actually under reporting the number of deaths and leading to an inaccurate OD rate for these counties. Poverty and access to intercity transport seemed to be interesting to observe, however. In counties where the rural population had between 0 and 5 percent unemployment, there was a lower OD rate in counties with access to intercity transit.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>This plot further proved that access to intercity transportation increases the rate of drug overdoses because as a county becomes more rural, it also experiences a lower drug overdose rate. This plot is similar to the plot modeling access to rural intercity transit and drug overdoses as it shows that rural areas (regardless of access to intercity transit) experience a lower drug overdose death rate on average.</p>
+<p>##Conclusion</p>
+<p>There does appear to be a very loose relationship between access to rural intercity transit and drug overdose death rates in a county. The coefficients in the regression was non-zero and were good predictors. These results demonstrate that there is a relationship between access to intercity transit and drug overdose rates in a county, but this was contrary to the previously suggested hypothesis that there would be a negative correlation (the regression demonstrated a positive correlation). This was likely because rural residents in counties with more access to intercity transit are more likely to be in or near counties close to a metropolitan area. There are definitely limitations and certain issues with this survey. Due to the National Center for Health Statistics’ Confidentiality Standards, all counties with between 1 and 9 overdoses in a month had the actual value redacted with a footnote denoting the standard in the drug overdose death data set It would be interesting to perform this survey with the accurate value of drug overdose deaths in every county. These redacted values impacted the data on rural counties as rural counties often have less overdose deaths (falling between the 1 to 9 range), and since I assumed all redacted values as 1, this likely results in an under reporting of overdoses in rural communities. As many rural counties have smaller populations, small changes in the number of drug overdoses deaths can significantly impact the observed overdose death rate greater than that of urban communities. Additionally, it would be interesting to test the data without certain anomalies created by the COVID-19 pandemic such as intercity transit service interruptions, impact of stricter COVID-19 lockdowns in urban areas on drug use, and other things of that nature that COVID-19 introduced.</p>
+<p>##Work Cited
+Firestine, Theresa, “Access to Intercity Air, Bus, and Rail Transportation in Rural Areas,” U.S. Department of Transportation, September 25, 2023</p>
+<p>n.a., “Provisional County-Level Drug Overdose Death Counts,” U.S. Centers for Disease Control &amp; Prevention, March 2023</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
